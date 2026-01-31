@@ -78,5 +78,8 @@ texture = SubResource("GradientTexture2D_vvh5c")
 
 [node name="Enemy" parent="." unique_id=1328005184 instance=ExtResource("4_28aoi")]
 
+[node name="Enemy2" parent="." unique_id=144937512 instance=ExtResource("4_28aoi")]
+position = Vector2(-505, -150)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1077877043]
 navigation_polygon = SubResource("NavigationPolygon_28aoi")

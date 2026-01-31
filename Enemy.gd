@@ -6,6 +6,7 @@ class_name Enemy
 
 @export var movement_speed = 5000;
 
+@onready var health_bar: TextureProgressBar = $TextureProgressBar
 
 #get ref to player
 @onready var player: Player = $"../Player"
@@ -28,6 +29,9 @@ func _process(delta: float) -> void:
 #TODO: check when near player, if close enough, then we should run attack anim on a timer
 # at a random interval
 func _physics_process(delta: float) -> void:
+	
+	#doesn't need to happen every physics tick but it works for now
+	health_bar.value = health
 	
 	
 	#if player's within like 60 we can attack

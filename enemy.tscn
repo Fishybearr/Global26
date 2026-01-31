@@ -110,6 +110,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_4gyqm"]
+colors = PackedColorArray(0.18039216, 0.23137255, 0.27450982, 1, 0.1805965, 0.22960609, 0.2744384, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qi2p4"]
+gradient = SubResource("Gradient_4gyqm")
+width = 20
+height = 5
+
+[sub_resource type="Gradient" id="Gradient_iifgy"]
+colors = PackedColorArray(0.7696464, 0.24937105, 0, 1, 0.79268336, 0, 0.085680164, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epg4t"]
+gradient = SubResource("Gradient_iifgy")
+width = 20
+height = 5
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1328005184]
 script = ExtResource("1_7k104")
 
@@ -129,6 +145,15 @@ one_shot = true
 scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_ar8e5")
 animation = &"Idle"
-frame_progress = 0.46946645
+frame_progress = 0.7707025
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=169341304]
+offset_left = -10.0
+offset_top = -16.0
+offset_right = 10.0
+offset_bottom = -11.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_qi2p4")
+texture_progress = SubResource("GradientTexture2D_epg4t")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
