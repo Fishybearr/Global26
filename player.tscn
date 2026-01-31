@@ -68,15 +68,8 @@ MAXSPEED = 400
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_pyidc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2012869443]
-visible = false
-scale = Vector2(1, 1.026)
-texture = ExtResource("2_onrkg")
-region_enabled = true
-region_rect = Rect2(0, -32.890526, 240, 178.67395)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2081661987]
 position = Vector2(0.5, 0)
 sprite_frames = SubResource("SpriteFrames_1jxqw")
 animation = &"Walk"
-frame_progress = 0.5653422
+frame_progress = 0.20406026

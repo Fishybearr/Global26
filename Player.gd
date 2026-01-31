@@ -5,12 +5,18 @@ class_name Player
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var MAXSPEED := 55
+
+@export var health := 100
 const ACCELERATION := 5
 const FRICTION := 8
 
-@onready var playerSprite: Sprite2D = $Sprite2D
-
 func _physics_process(delta: float) -> void:
+	
+	#WARNING: THIS WILL CRASH THE GAME IF THE PLAYER DIES
+	#use this to trigger gameover instead of destroying object
+	if health <= 0:
+		queue_free()
+	
 	var input = Vector2(
 		Input.get_action_strength("x_right") - Input.get_action_strength("x_left"),
 		Input.get_action_strength("y_down") - Input.get_action_strength("y_up"),

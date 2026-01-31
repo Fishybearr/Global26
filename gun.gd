@@ -8,6 +8,8 @@ const bullet: PackedScene = preload("res://bullet.tscn")
 
 @export var bullet_delay:= 0.2;
 
+@export var gun_damage := 10;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -26,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		bulletInstance.global_rotation = global_rotation
 		bulletInstance.apply_central_force(bullet_force * Vector2.from_angle(global_rotation))
 		get_tree().get_root().add_child(bulletInstance)
+		bulletInstance.bulletDamage = gun_damage;
 		
 		
 func ShootDelay():

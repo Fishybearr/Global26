@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4i0e8kpdmll3" path="res://player.tscn" id="1_pq8q7"]
 [ext_resource type="Script" uid="uid://bsjoamx2akn4o" path="res://gun.gd" id="3_28aoi"]
 [ext_resource type="Script" uid="uid://dkuxvb6bcwwcw" path="res://pivot_point.gd" id="3_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://cmxpb2t0xm3ss" path="res://enemy.tscn" id="4_28aoi"]
 
 [sub_resource type="Gradient" id="Gradient_vvh5c"]
 
@@ -16,6 +17,12 @@ size = Vector2(1251, 20)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vvh5c"]
 gradient = SubResource("Gradient_pyidc")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_28aoi"]
+vertices = PackedVector2Array(563, 299, -571, 299, -571, -315, 563, -315)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-576, -320, 568, -320, 568, 304, -576, 304)])
+agent_radius = 5.0
 
 [node name="Root" type="Node2D" unique_id=1676188793]
 
@@ -68,3 +75,8 @@ scale = Vector2(14.778358, 0.3194034)
 texture = SubResource("GradientTexture2D_vvh5c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800094761]
+
+[node name="Enemy" parent="." unique_id=1328005184 instance=ExtResource("4_28aoi")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1077877043]
+navigation_polygon = SubResource("NavigationPolygon_28aoi")
