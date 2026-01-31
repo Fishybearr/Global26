@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4qgraunljait"
-path="res://.godot/imported/SmallL.png-5c4212517c6d552ea978545d9d8d846b.ctex"
+uid="uid://poxjxuusd2py"
+path="res://.godot/imported/L3.png-3dfcf8202b2866aaaee267441161c0a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mini_Dungeon_v1.0/Objects/SmallL.png"
-dest_files=["res://.godot/imported/SmallL.png-5c4212517c6d552ea978545d9d8d846b.ctex"]
+source_file="res://Masks/MaskExports/L3.png"
+dest_files=["res://.godot/imported/L3.png-3dfcf8202b2866aaaee267441161c0a2.ctex"]
 
 [params]
 

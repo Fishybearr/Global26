@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://bjt3gs8r7lt"]
+
+[ext_resource type="Script" uid="uid://13ihajno4yyt" path="res://Masks/Maskst.gd" id="1_blmyo"]
+[ext_resource type="Texture2D" uid="uid://cy00r7o1j67lh" path="res://Masks/MaskExports/Plus3.png" id="2_thegr"]
+
+[resource]
+script = ExtResource("1_blmyo")
+sprite = ExtResource("2_thegr")
+offsets = Array[Vector2i]([Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)])

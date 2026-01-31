@@ -4,8 +4,10 @@ extends TileMapLayer
 # use tile data runtime update (coords vector2i)
 # tile data runtime update
 @export var background_tile_map : TileMapLayer
-@export var maskSprite : Sprite2D
- 
+@export var SpriteResource : Mask
+@export var MaskSprite : Sprite2D
+
+
 var tiles := [
 	Vector3i(0,6,2),
 	Vector3i(6,1,1),
@@ -18,8 +20,6 @@ var tiles := [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var mouseposition = local_to_map(get_local_mouse_position())
-	maskSprite.position = mouseposition*16
 	
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
@@ -33,13 +33,17 @@ func _ready() -> void:
 			var outInt : int = round(out)
 			background_tile_map.set_cell(Vector2(x, y), 4, Vector2i.ZERO)
 			set_cell(Vector2(x, y), tiles[outInt].x, Vector2i(tiles[outInt].y, tiles[outInt].z))
-	#var testcell = background_tile_map.get_cell_tile_data(Vector2(1,2))
-	#testcell.set_custom_data("modulate",Color.AQUAMARINE)
-	pass # Replace with function body.
+	
+	MaskSprite.texture = SpriteResource.sprite
+	var mouseposition = local_to_map(get_local_mouse_position())
+	MaskSprite.position = mouseposition*16
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var mouseposition = local_to_map(get_local_mouse_position())
-	maskSprite.position = mouseposition*16
-	pass
+	MaskSprite.position = mouseposition*16
+	if Input.is_action_just_pressed("Place"):
+		for value in len(SpriteResource.offsets):
+			print(value)
+		
