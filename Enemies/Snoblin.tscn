@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dk62a48nf20jo"]
+
+[ext_resource type="Script" uid="uid://d017b4xq4ieuh" path="res://Enemies/Enemy.gd" id="1_m65dp"]
+[ext_resource type="Texture2D" uid="uid://dc4yqapljl1im" path="res://Snoblin_Free_Skeleton/Assets/Skeleton/skeleton.png" id="2_m65dp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnlp7"]
+size = Vector2(24, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6y6a"]
+atlas = ExtResource("2_m65dp")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8gqo"]
+atlas = ExtResource("2_m65dp")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4v0m"]
+atlas = ExtResource("2_m65dp")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ycta"]
+atlas = ExtResource("2_m65dp")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4kah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6y6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8gqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4v0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ycta")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 15.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_4gyqm"]
+colors = PackedColorArray(0.18039216, 0.23137255, 0.27450982, 1, 0.1805965, 0.22960609, 0.2744384, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qi2p4"]
+gradient = SubResource("Gradient_4gyqm")
+width = 20
+height = 5
+
+[sub_resource type="Gradient" id="Gradient_iifgy"]
+colors = PackedColorArray(0.7696464, 0.24937105, 0, 1, 0.79268336, 0, 0.085680164, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epg4t"]
+gradient = SubResource("Gradient_iifgy")
+width = 20
+height = 5
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1328005184]
+script = ExtResource("1_m65dp")
+health = 50
+movement_speed = 10000
+damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=997693554]
+position = Vector2(-2, 8)
+shape = SubResource("RectangleShape2D_jnlp7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=196701088]
+path_desired_distance = 3.0
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=422916377]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1965171829]
+position = Vector2(0, 6.999999)
+scale = Vector2(2.2131858, 2.2131858)
+sprite_frames = SubResource("SpriteFrames_k4kah")
+animation = &"Walk"
+frame_progress = 0.6746879
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=169341304]
+offset_left = -10.0
+offset_top = -16.0
+offset_right = 10.0
+offset_bottom = -11.0
+max_value = 50.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_qi2p4")
+texture_progress = SubResource("GradientTexture2D_epg4t")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

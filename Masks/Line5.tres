@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("1_eke3v")
 sprite = ExtResource("2_qf5pq")
-offsets = Array[Vector2i]([Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, -1), Vector2i(0, -2)])
+offsets = Array[Vector2i]([Vector2i(0, 2), Vector2i(0, 1), Vector2i(0, -1), Vector2i(0, -2), Vector2i(0, 0)])

@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c7r08h2hgsknx"]
+[gd_scene format=3 uid="uid://bpwrehfeq5xf2"]
 
 [ext_resource type="TileSet" uid="uid://dybrq7878vmi6" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
 [ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
-[ext_resource type="Resource" uid="uid://cj3tula21d8by" path="res://Masks/Plus9.tres" id="3_871il"]
+[ext_resource type="Resource" uid="uid://cqrxurrwplum5" path="res://Masks/L2.tres" id="3_871il"]
 [ext_resource type="Script" uid="uid://dwrebswaaeaxu" path="res://MaskGrid.gd" id="9_0dge7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gilrd"]

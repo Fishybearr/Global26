@@ -1,5 +1,12 @@
 extends Area2D
 
+@onready var player: Player = $"../../Player"
+
+@onready var level: Node2D = $".."
+const MOUSESCENE = preload("uid://bpwrehfeq5xf2")
+
+
+@onready var spawn_manager: Node = $"../SpawnManager"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,5 +19,11 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		print("next level")  
+	if body is Player && spawn_manager.can_open == true:
+		print("next level") 
+		var ms = MOUSESCENE.instantiate()
+		
+		player.playerActive = false
+		
+		get_tree().root.add_child(ms)
+		level.queue_free()
