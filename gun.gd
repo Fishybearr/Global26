@@ -10,6 +10,8 @@ const bullet: PackedScene = preload("res://bullet.tscn")
 
 @export var gun_damage := 10;
 
+@onready var player: Player = $"../.."
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,15 +22,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	#set a timer here for shooting cooldown
-	if Input.is_action_just_pressed("hit_attack") && can_shoot:
-		print("shhoting");
-		ShootDelay()
-		var bulletInstance = bullet.instantiate();
-		bulletInstance.global_position = global_position
-		bulletInstance.global_rotation = global_rotation
-		bulletInstance.apply_central_force(bullet_force * Vector2.from_angle(global_rotation))
-		get_tree().get_root().add_child(bulletInstance)
-		bulletInstance.bulletDamage = gun_damage;
+	if player.playerActive:
+		if Input.is_action_just_pressed("hit_attack") && can_shoot:
+			#print("shhoting");
+			ShootDelay()
+			var bulletInstance = bullet.instantiate();
+			bulletInstance.global_position = global_position
+			bulletInstance.global_rotation = global_rotation
+			bulletInstance.apply_central_force(bullet_force * Vector2.from_angle(global_rotation))
+			get_tree().get_root().add_child(bulletInstance)
+			bulletInstance.bulletDamage = gun_damage;
 		
 		
 func ShootDelay():

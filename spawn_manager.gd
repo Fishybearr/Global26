@@ -23,10 +23,6 @@ func _process(delta: float) -> void:
 	#check to see if all enemies are dead
 	if enemyCount <= 0:
 		can_open = true
-		
-	if can_open == true:
-		OpenDoor()
-		can_open = false;
 	
 
 func Spawn():
@@ -36,8 +32,3 @@ func Spawn():
 	for i in range(enemyCount):
 		enemies[i].global_position = spawnPoints[i].global_position
 	
-	#spawn all items at the spawn points
-
-# open the door
-func OpenDoor():
-	print("Door Open")
