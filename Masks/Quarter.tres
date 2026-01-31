@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://c4kf5qqksojds"]
+
+[ext_resource type="Script" uid="uid://13ihajno4yyt" path="res://Masks/Maskst.gd" id="1_j0mga"]
+[ext_resource type="Texture2D" uid="uid://46ygjsfvrkiq" path="res://Masks/MaskExports/Quarter.png" id="2_qvs2n"]
+
+[resource]
+script = ExtResource("1_j0mga")
+sprite = ExtResource("2_qvs2n")
