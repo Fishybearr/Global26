@@ -2,18 +2,31 @@
 
 [ext_resource type="TileSet" uid="uid://dybrq7878vmi6" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
 [ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
+[ext_resource type="Texture2D" uid="uid://b4qgraunljait" path="res://Mini_Dungeon_v1.0/Objects/SmallL.png" id="3_871il"]
 [ext_resource type="Script" uid="uid://dwrebswaaeaxu" path="res://MaskGrid.gd" id="9_0dge7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gilrd"]
+frequency = 0.1168
 
 [node name="Node2D" type="Node2D" unique_id=1553022676]
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=701264433]
-position = Vector2(-80, -24)
-polygon = PackedVector2Array(64, -4.5714297, 93.53847, -4.5714297, 93.53847, 13.714286, 113.230774, 13.714286, 113.230774, 31.999998, 93.53847, 31.999998, 93.53847, 50.285717, 64, 50.285717, 64, 31.999998, 39.384617, 31.999998, 39.384617, 13.714286, 64, 13.714286)
-script = ExtResource("2_lk4fn")
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=349448605]
+z_index = -2
+tile_set = ExtResource("2_3nsyv")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1233633999]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1233633999 node_paths=PackedStringArray("background_tile_map", "maskSprite")]
 tile_set = ExtResource("2_3nsyv")
 script = ExtResource("9_0dge7")
 noise = SubResource("FastNoiseLite_gilrd")
+background_tile_map = NodePath("../TileMapLayer2")
+maskSprite = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1533721392]
+position = Vector2(-8, -8)
+texture = ExtResource("3_871il")
+offset = Vector2(8, 8)
+script = ExtResource("2_lk4fn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1300729076]
+visible = false
+color = Color(0.18431373, 0.10980392, 0.13333334, 0.36078432)
