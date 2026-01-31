@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7r08h2hgsknx"]
+
+[ext_resource type="TileSet" uid="uid://dybrq7878vmi6" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
+[ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
+[ext_resource type="Script" uid="uid://dwrebswaaeaxu" path="res://MaskGrid.gd" id="9_0dge7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gilrd"]
+
+[node name="Node2D" type="Node2D" unique_id=1553022676]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=701264433]
+position = Vector2(-80, -24)
+polygon = PackedVector2Array(64, -4.5714297, 93.53847, -4.5714297, 93.53847, 13.714286, 113.230774, 13.714286, 113.230774, 31.999998, 93.53847, 31.999998, 93.53847, 50.285717, 64, 50.285717, 64, 31.999998, 39.384617, 31.999998, 39.384617, 13.714286, 64, 13.714286)
+script = ExtResource("2_lk4fn")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1233633999]
+tile_set = ExtResource("2_3nsyv")
+script = ExtResource("9_0dge7")
+noise = SubResource("FastNoiseLite_gilrd")
