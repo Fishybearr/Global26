@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://jwxcpmwgi3o4"]
+
+[ext_resource type="PackedScene" uid="uid://4i0e8kpdmll3" path="res://player.tscn" id="1_pq8q7"]
+[ext_resource type="Texture2D" uid="uid://cwbh6sfm7f77e" path="res://icon.svg" id="2_pyidc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq8q7"]
+size = Vector2(1251, 20)
+
+[sub_resource type="Gradient" id="Gradient_pyidc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvh5c"]
+gradient = SubResource("Gradient_pyidc")
+
+[node name="Root" type="Node2D" unique_id=1676188793]
+
+[node name="Player" parent="." unique_id=197392079 instance=ExtResource("1_pq8q7")]
+position = Vector2(-282, 0)
+
+[node name="Env" type="Node" parent="." unique_id=2086653968]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Env" unique_id=1127697181]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D" unique_id=119555731]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Env" unique_id=1238340264]
+position = Vector2(-35, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D2" unique_id=884485723]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Env" unique_id=1030099025]
+position = Vector2(-918, 172)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D3" unique_id=920027557]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Env" unique_id=889109934]
+position = Vector2(-124, 159)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D4" unique_id=331353552]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Env/StaticBody2D4/CollisionShape2D" unique_id=1247465647]
+position = Vector2(-177.00002, 7.736916e-06)
+scale = Vector2(14.778358, 0.3194034)
+texture = SubResource("GradientTexture2D_vvh5c")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1800094761]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=490582138]
+position = Vector2(401.00003, 0)
+scale = Vector2(2.685, 2.685)
+texture = ExtResource("2_pyidc")

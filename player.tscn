@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4i0e8kpdmll3"]
+
+[ext_resource type="Script" uid="uid://bnwpeqa4xtyv4" path="res://Player.gd" id="1_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyidc"]
+
+[sub_resource type="Gradient" id="Gradient_vvh5c"]
+colors = PackedColorArray(0.99999994, 0.13797432, 0.8915109, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28aoi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jnlp7"]
+noise = SubResource("FastNoiseLite_28aoi")
+color_ramp = SubResource("Gradient_vvh5c")
+
+[node name="Player" type="CharacterBody2D" unique_id=197392079]
+script = ExtResource("1_4flbx")
+MAXSPEED = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792979653]
+shape = SubResource("RectangleShape2D_pyidc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2012869443]
+position = Vector2(-1.937151e-07, 0.11999879)
+scale = Vector2(0.039062504, 0.03953125)
+texture = SubResource("NoiseTexture2D_jnlp7")
