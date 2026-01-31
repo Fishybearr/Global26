@@ -15,6 +15,8 @@ class_name Enemy
 
 @export var can_attack = true;
 
+@onready var spawn_manager: Node = $"../SpawnManager"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		attackPlayer()
 	
 	if health  <= 0:
+		spawn_manager.enemyCount -= 1;
 		queue_free()
 		
 	if !$NavigationAgent2D.is_target_reached():

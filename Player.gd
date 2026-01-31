@@ -6,11 +6,14 @@ class_name Player
 
 @export var MAXSPEED := 55
 
+@onready var player_health_bar: TextureProgressBar = $"../PlayerHealthBar"
+
 @export var health := 100
 const ACCELERATION := 5
 const FRICTION := 8
 
 func _physics_process(delta: float) -> void:
+	player_health_bar.value = health
 	
 	#WARNING: THIS WILL CRASH THE GAME IF THE PLAYER DIES
 	#use this to trigger gameover instead of destroying object
@@ -39,3 +42,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	#look_at(get_global_mouse_position())
+
+
+func _on_door_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -4,6 +4,24 @@
 [ext_resource type="Script" uid="uid://bsjoamx2akn4o" path="res://gun.gd" id="3_28aoi"]
 [ext_resource type="Script" uid="uid://dkuxvb6bcwwcw" path="res://pivot_point.gd" id="3_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://cmxpb2t0xm3ss" path="res://enemy.tscn" id="4_28aoi"]
+[ext_resource type="Script" uid="uid://o5rxt7k0g3lc" path="res://spawn_manager.gd" id="5_jnlp7"]
+[ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="6_l8v81"]
+
+[sub_resource type="Gradient" id="Gradient_jnlp7"]
+colors = PackedColorArray(0.15982476, 0.16813096, 0.19908643, 1, 0.16078432, 0.16862746, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l8v81"]
+gradient = SubResource("Gradient_jnlp7")
+width = 125
+height = 15
+
+[sub_resource type="Gradient" id="Gradient_vyht1"]
+colors = PackedColorArray(0.9901338, 0, 0.38311777, 1, 0.9853782, 0.4557227, 0.7147089, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bf3um"]
+gradient = SubResource("Gradient_vyht1")
+width = 125
+height = 15
 
 [sub_resource type="Gradient" id="Gradient_vvh5c"]
 
@@ -24,7 +42,24 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-576, -320, 568, -320, 568, 304, -576, 304)])
 agent_radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnlp7"]
+size = Vector2(64, 62)
+
+[sub_resource type="Gradient" id="Gradient_bf3um"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_huihk"]
+gradient = SubResource("Gradient_bf3um")
+
 [node name="Root" type="Node2D" unique_id=1676188793]
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="." unique_id=201361919]
+offset_left = -569.0
+offset_top = -313.0
+offset_right = -444.0
+offset_bottom = -298.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_l8v81")
+texture_progress = SubResource("GradientTexture2D_bf3um")
 
 [node name="Player" parent="." unique_id=197392079 instance=ExtResource("1_pq8q7")]
 position = Vector2(-282, 0)
@@ -83,3 +118,26 @@ position = Vector2(-505, -150)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1077877043]
 navigation_polygon = SubResource("NavigationPolygon_28aoi")
+
+[node name="SpawnManager" type="Node" parent="." unique_id=1725238256 node_paths=PackedStringArray("enemies", "spawnPoints")]
+script = ExtResource("5_jnlp7")
+enemies = [NodePath("../Enemy"), NodePath("../Enemy2")]
+spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2")]
+
+[node name="Spawn1" type="Node2D" parent="SpawnManager" unique_id=1933830273]
+position = Vector2(-195, -259)
+
+[node name="Spawn2" type="Node2D" parent="SpawnManager" unique_id=1843614282]
+position = Vector2(291, -201)
+
+[node name="Door" type="Area2D" parent="." unique_id=1744638583]
+position = Vector2(0, -279)
+script = ExtResource("6_l8v81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1368895377]
+shape = SubResource("RectangleShape2D_jnlp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1291134369]
+texture = SubResource("GradientTexture2D_huihk")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
