@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c4nyx8cgmhrny"]
+
+[ext_resource type="Script" uid="uid://lmoc270yp64v" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]
+size = Vector2(4, 10)
+
+[sub_resource type="Gradient" id="Gradient_rtl8c"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7oki"]
+gradient = SubResource("Gradient_rtl8c")
+
+[node name="Bullet" type="RigidBody2D" unique_id=1776629859]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1280938925]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_rtl8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1641325746]
+rotation = 1.5707964
+scale = Vector2(0.04, 0.14)
+texture = SubResource("GradientTexture2D_v7oki")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
