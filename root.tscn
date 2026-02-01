@@ -37,6 +37,7 @@ script = ExtResource("1_jnlp7")
 
 [node name="SceneManager" type="Node" parent="." unique_id=1510446999]
 script = ExtResource("10_tw3kd")
+levelsTillShop = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800094761]
 
@@ -68,6 +69,7 @@ text = "12"
 [node name="Player" parent="." unique_id=197392079 instance=ExtResource("1_pq8q7")]
 position = Vector2(-282, 0)
 playerActive = false
+coins = 10
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Player" unique_id=578346848]
 script = ExtResource("3_vvh5c")

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bwd20fk3b2cy0"]
+
+[ext_resource type="Script" uid="uid://bf3ulqgcw4w8l" path="res://UI/shop_menu.gd" id="1_mocmp"]
+[ext_resource type="Texture2D" uid="uid://b4qgraunljait" path="res://Masks/MaskExports/L2.png" id="1_t740p"]
+[ext_resource type="Resource" uid="uid://ob0jlu4bbxcg" path="res://Masks/Half.tres" id="2_bdxb8"]
+[ext_resource type="Texture2D" uid="uid://poxjxuusd2py" path="res://Masks/MaskExports/L3.png" id="2_mocmp"]
+[ext_resource type="Resource" uid="uid://cqrxurrwplum5" path="res://Masks/L2.tres" id="3_gghcw"]
+[ext_resource type="Texture2D" uid="uid://d80s4s47b68o" path="res://Masks/MaskExports/Line7.png" id="3_qf6hq"]
+[ext_resource type="Resource" uid="uid://ch5usuabxn16s" path="res://Masks/L3.tres" id="4_qt6hp"]
+[ext_resource type="Resource" uid="uid://c2es78najrf12" path="res://Masks/L5.tres" id="5_fl605"]
+[ext_resource type="Resource" uid="uid://ce822y8myofw8" path="res://Masks/L7.tres" id="6_l3ygi"]
+[ext_resource type="Resource" uid="uid://rt6lbjm58sum" path="res://Masks/L9.tres" id="7_30y4k"]
+[ext_resource type="Resource" uid="uid://i1brr4mbta25" path="res://Masks/Line3.tres" id="8_0emaq"]
+[ext_resource type="Resource" uid="uid://cyh5bdf1b80ql" path="res://Masks/Line5.tres" id="9_23sq0"]
+[ext_resource type="Resource" uid="uid://b1inphrpbv1te" path="res://Masks/Line7.tres" id="10_2op61"]
+[ext_resource type="Resource" uid="uid://byck1fr12qmly" path="res://Masks/Line9.tres" id="11_v3f4p"]
+
+[node name="ShopMenu" type="Control" unique_id=1886710300]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mocmp")
+masks = Array[Resource]([ExtResource("5_fl605"), ExtResource("2_bdxb8"), ExtResource("3_gghcw"), ExtResource("4_qt6hp"), ExtResource("6_l3ygi"), ExtResource("7_30y4k"), ExtResource("8_0emaq"), ExtResource("9_23sq0"), ExtResource("10_2op61"), ExtResource("11_v3f4p")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1725828280]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=1811083721]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -136.0
+offset_right = 136.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=1085605861]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=881446207]
+layout_mode = 2
+texture = ExtResource("1_t740p")
+
+[node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1686734440]
+layout_mode = 2
+text = "Buy"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=1006855161]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer2" unique_id=1452668044]
+layout_mode = 2
+texture = ExtResource("2_mocmp")
+
+[node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer2" unique_id=1903691804]
+layout_mode = 2
+text = "Buy"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=344208790]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer3" unique_id=1621726224]
+layout_mode = 2
+texture = ExtResource("3_qf6hq")
+
+[node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer3" unique_id=77255264]
+layout_mode = 2
+text = "Buy"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/Button" to="." method="_on_buttonL_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer2/Button" to="." method="_on_buttonM_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer3/Button" to="." method="_on_buttonR_pressed"]

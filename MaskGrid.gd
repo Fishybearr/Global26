@@ -27,8 +27,8 @@ var tiles := [
 	#id,Vec2 coords in image,item type ^,name
 	[Vector4i(0,6,2,1),"Spike"],
 	[Vector4i(6,1,1,2),"Slime"],
-	[Vector4i(6,1,1,2),"Troll"], #change icon
-	[Vector4i(6,1,1,2),"Snoblin"], #change icon
+	[Vector4i(11,0,1,2),"Troll"], #change icon
+	[Vector4i(12,0,0,2),"Snoblin"], #change icon
 	[Vector4i(7,0,0,1),"Coin"],
 	[Vector4i(8,0,0,1),"BluePotion"],
 	[Vector4i(9,0,0,1),"RedPotion"],
@@ -43,6 +43,12 @@ func SearchTiles(TileArray: Array,InputToCheck: Vector4i)->String:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	SpriteResource = scene_manager.mask
+	
+	
+	
+	
 	# Lookup Table init
 	const SIZE = 9 # set size to 9
 	for i in range(SIZE): # loop

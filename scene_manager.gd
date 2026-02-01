@@ -16,6 +16,8 @@ extends Node
 
 @export var levelsTillShop := 5;
 
+@export var mask:Resource = load("res://Masks/L2.tres")
+
 #enemies
 const SLIME = preload("uid://cmxpb2t0xm3ss")
 const SNOBLIN = preload("uid://dk62a48nf20jo")
