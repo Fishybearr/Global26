@@ -13,6 +13,7 @@ var ReadyLookupTable: Array[Array]
 #this will be an array of levels we can pull from
 #for now just using one level
 var LEVEL_BASE = load("uid://bx4oqtrfc1pdc")
+const SHOP_LEVEL = preload("uid://w6uyoj41r6m6")
 
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")
@@ -26,8 +27,8 @@ var tiles := [
 	#id,Vec2 coords in image,item type ^,name
 	[Vector4i(0,6,2,1),"Spike"],
 	[Vector4i(6,1,1,2),"Slime"],
-	[Vector4i(6,1,1,2),"Troll"],
-	[Vector4i(6,1,1,2),"Snoblin"],
+	[Vector4i(6,1,1,2),"Troll"], #change icon
+	[Vector4i(6,1,1,2),"Snoblin"], #change icon
 	[Vector4i(7,0,0,1),"Coin"],
 	[Vector4i(8,0,0,1),"BluePotion"],
 	[Vector4i(9,0,0,1),"RedPotion"],
@@ -130,8 +131,14 @@ func _process(delta: float) -> void:
 		
 		scene_manager.getItemsFromName(OutputOther)
 		
-		#create new scene
 		var lb = LEVEL_BASE.instantiate()
+		#create new scene
+		if scene_manager.levelsTillShop <= 0:
+			lb = SHOP_LEVEL.instantiate()
+			scene_manager.levelsTillShop = 5
+		else:
+			scene_manager.levelsTillShop -= 1;
+		
 		get_node("/root/Root/SceneManager").add_child(lb)
 		player.playerActive = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
