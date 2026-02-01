@@ -4,6 +4,7 @@ extends Area2D
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")
 
+@onready var camera_2d: Camera2D = get_node("/root/Root/Camera2D")
 
 @onready var level: Node2D = $".."
 
@@ -27,7 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 		player.playerActive = false
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
-		
+		camera_2d.zoom = Vector2(5,5)
 		var l = get_node("/root/Root/SceneManager/LevelBase")
 		if l == null:
 			get_node("/root/Root/SceneManager/LevelBase2").queue_free()

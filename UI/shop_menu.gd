@@ -23,6 +23,7 @@ func _on_buttonL_pressed() -> void:
 		
 		scene_manager.mask = masks[2]
 		player.playerActive = true
+		player.global_position = Vector2(100,100)
 		queue_free()
 	else:
 		print("no money")
@@ -35,6 +36,7 @@ func _on_buttonM_pressed() -> void:
 		
 		scene_manager.mask = masks[4]
 		player.playerActive = true
+		player.global_position = Vector2(100,100)
 		queue_free()
 	else:
 		print("no money")
@@ -48,6 +50,7 @@ func _on_buttonR_pressed() -> void:
 		#set the mask in SceneManager and then set that when we load the selection scene
 		scene_manager.mask = masks[0]
 		player.playerActive = true
+		player.global_position = Vector2(100,100)
 		queue_free()
 	else:
 		print("no money")
