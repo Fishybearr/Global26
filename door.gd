@@ -30,11 +30,15 @@ func _on_body_entered(body: Node2D) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 		camera_2d.zoom = Vector2(5,5)
+		camera_2d.global_position = Vector2(0,0)
 		var l = get_node("/root/Root/SceneManager/LevelBase")
 		if l == null:
 			get_node("/root/Root/SceneManager/LevelBase2").queue_free()
 		else:
 			l.queue_free()
+			await l.tree_exited
+			camera_2d.global_position = Vector2.ZERO
+			
 		
 
 		

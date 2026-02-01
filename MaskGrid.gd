@@ -151,7 +151,7 @@ func _process(delta: float) -> void:
 		else:
 			scene_manager.levelsTillShop -= 1;
 		
-		get_node("/root/Root/SceneManager").add_child(lb)
+		get_node("/root/Root/SceneManager").add_child(lb,true)
 		player.playerActive = true
 		$"../../../CanvasLayer".visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

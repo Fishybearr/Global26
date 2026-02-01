@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://c65asemegjsyw" path="res://Levels/l1/SpawnAssets.gd" id="1_8gvx5"]
 [ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="1_24mn8"]
 
-[sub_resource type="Gradient" id="Gradient_1nbx2"]
+[sub_resource type="Gradient" id="Gradient_8gvx5"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_24mn8"]
-gradient = SubResource("Gradient_1nbx2")
+gradient = SubResource("Gradient_8gvx5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvx5"]
 

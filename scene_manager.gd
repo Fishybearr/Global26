@@ -22,7 +22,8 @@ extends Node
 const SLIME = preload("uid://cmxpb2t0xm3ss")
 const SNOBLIN = preload("uid://dk62a48nf20jo")
 const TROLL = preload("uid://c2q4u6cdbkkp8")
-const GHOST = preload("uid://k1xeoe8rroe")
+const GHOST = preload("res://Enemies/Ghost.tscn")
+
 
 #items
 const POTION_BLUE = preload("uid://b3esuv6g3uxw3")
