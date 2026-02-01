@@ -59,6 +59,7 @@ width = 20
 height = 5
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1328005184]
+collision_mask = 5
 script = ExtResource("1_m65dp")
 health = 50
 movement_speed = 10000

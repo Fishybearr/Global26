@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cdqhn0ui0k5e3" path="res://Minimal Dungeon - Asset Pack DEMO/Players/Dwarf/dwarf x1.png" id="4_njd0n"]
 [ext_resource type="Texture2D" uid="uid://wdvyo5sfl5f2" path="res://Mini_Dungeon_v1.0/Tilesets/DoubleDoor.png" id="5_6bvle"]
 [ext_resource type="Texture2D" uid="uid://dc4yqapljl1im" path="res://Snoblin_Free_Skeleton/Assets/Skeleton/skeleton.png" id="5_7esgm"]
+[ext_resource type="Texture2D" uid="uid://h00he7kyv8wr" path="res://Enemies/ghost-idle.png" id="6_0vkam"]
 [ext_resource type="Texture2D" uid="uid://d7atelsrwfp7" path="res://Mini_Dungeon_v1.0/Tilesets/Floor.png" id="6_jb50u"]
 [ext_resource type="Texture2D" uid="uid://bux3ov15ltlxy" path="res://Mini_Dungeon_v1.0/Tilesets/Walls.png" id="7_ci6ci"]
 [ext_resource type="Texture2D" uid="uid://cpjb7vbf6kdo3" path="res://Mini_Dungeon_v1.0/Characters/Slime.png" id="8_kpqfi"]
@@ -217,6 +218,23 @@ texture_region_size = Vector2i(32, 32)
 2:11/0 = 0
 3:11/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bvle"]
+texture = ExtResource("6_0vkam")
+margins = Vector2i(20, 13)
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+0:0/0 = 0
+2:0/0 = 0
+5:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw0ks"]
 texture = ExtResource("4_0vkam")
 0:0/0 = 0
@@ -235,22 +253,28 @@ texture = ExtResource("5_6bvle")
 2:1/0 = 0
 3:1/0 = 0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7esgm"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jb50u"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6bvle"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ada0y"]
 texture = ExtResource("6_jb50u")
 0:0/0 = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7esgm")
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jb50u")
+0:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_6bvle")
 1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7esgm")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jb50u")
+1:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_6bvle")
 0:1/0 = 0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7esgm")
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jb50u")
+0:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_6bvle")
 1:1/0 = 0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7esgm")
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jb50u")
+1:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_6bvle")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gbeuk"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -288,6 +312,12 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e6ing"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0vkam"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc6ow"]
 texture = ExtResource("7_ci6ci")
 0:0/0 = 0
@@ -298,6 +328,7 @@ texture = ExtResource("7_ci6ci")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
+7:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_0vkam")
 0:1/0 = 0
 1:1/0 = 0
 1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_gbeuk")
@@ -470,7 +501,8 @@ texture = ExtResource("11_puy5g")
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-navigation_layer_0/layers = 1
+navigation_layer_0/layers = 3
+navigation_layer_1/layers = 2
 sources/1 = SubResource("TileSetAtlasSource_7cgw2")
 sources/2 = SubResource("TileSetAtlasSource_vw0ks")
 sources/3 = SubResource("TileSetAtlasSource_oatjv")
@@ -484,3 +516,4 @@ sources/9 = SubResource("TileSetAtlasSource_b2yid")
 sources/10 = SubResource("TileSetAtlasSource_0dge7")
 sources/11 = SubResource("TileSetAtlasSource_7esgm")
 sources/12 = SubResource("TileSetAtlasSource_0vkam")
+sources/13 = SubResource("TileSetAtlasSource_6bvle")

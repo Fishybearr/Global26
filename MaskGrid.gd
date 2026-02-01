@@ -35,7 +35,8 @@ var tiles := [
 	[Vector4i(7,0,0,1),"Coin"],
 	[Vector4i(8,0,0,1),"BluePotion"],
 	[Vector4i(9,0,0,1),"RedPotion"],
-	[Vector4i(0,4,1,1),"Box"]
+	[Vector4i(0,4,1,1),"Box"],
+	[Vector4i(13, 0, 0, 2), "Ghost"]
 ]
 
 func SearchTiles(TileArray: Array,InputToCheck: Vector4i)->String:

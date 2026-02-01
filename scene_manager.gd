@@ -22,6 +22,7 @@ extends Node
 const SLIME = preload("uid://cmxpb2t0xm3ss")
 const SNOBLIN = preload("uid://dk62a48nf20jo")
 const TROLL = preload("uid://c2q4u6cdbkkp8")
+const GHOST = preload("uid://k1xeoe8rroe")
 
 #items
 const POTION_BLUE = preload("uid://b3esuv6g3uxw3")
@@ -54,6 +55,10 @@ func getEnemiesFromName(names : Array):
 			
 		elif names[n] == "Troll":
 			enemyObjects[n] = TROLL.instantiate()
+			add_child(enemyObjects[n])
+			
+		elif names[n] == "Ghost":
+			enemyObjects[n] = GHOST.instantiate()
 			add_child(enemyObjects[n])
 
 #get the names of the items and convert them to actual items to send to the scene

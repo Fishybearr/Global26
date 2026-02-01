@@ -11,6 +11,7 @@ size = Vector2(4, 10)
 gradient = SubResource("Gradient_rtl8c")
 
 [node name="Bullet" type="RigidBody2D" unique_id=1776629859]
+collision_layer = 5
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
