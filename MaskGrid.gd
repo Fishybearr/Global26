@@ -16,13 +16,19 @@ var ReadyLookupTable: Array[Array]
 var LEVEL_BASE = load("uid://bx4oqtrfc1pdc")
 
 
+@onready var scene_manager: Node = get_node("/root/Root/SceneManager")
+
 
 var tiles := [
 	#other 1
 	#enemies 2
 	#Weapons 3
+	
+	#id,Vec2 coords in image,item type ^,name
 	[Vector4i(0,6,2,1),"Spike"],
 	[Vector4i(6,1,1,2),"Slime"],
+	[Vector4i(6,1,1,2),"Troll"],
+	[Vector4i(6,1,1,2),"Snoblin"],
 	[Vector4i(7,0,0,1),"Coin"],
 	[Vector4i(8,0,0,1),"BluePotion"],
 	[Vector4i(9,0,0,1),"RedPotion"],
@@ -65,13 +71,29 @@ func _ready() -> void:
 	
 	# Set Sprite crap
 	MaskSprite.texture = SpriteResource.sprite
+	Input.warp_mouse(Vector2(40*16,24*16))
 	var mouseposition = local_to_map(get_local_mouse_position())
 	MaskSprite.position = mouseposition*16
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var joy_vector := Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	)
+	var js_speed = 88
+	# deadzones
+	if abs(joy_vector.x) < 0.15:
+		joy_vector.x = 0
+	if abs(joy_vector.y) < 0.15:
+		joy_vector.y = 0
+
 	var actualmouseposition = get_local_mouse_position()
+
+	actualmouseposition.x = actualmouseposition.x+joy_vector.x*js_speed
+	actualmouseposition.y = actualmouseposition.y+joy_vector.y*js_speed    
+	
 	actualmouseposition.x = clamp(actualmouseposition.x,position.x,position.x+Vector2(8*16,8*16).x)
 	actualmouseposition.y = clamp(actualmouseposition.y,position.y,position.y+Vector2(8*16,8*16).y)
 	
@@ -106,10 +128,16 @@ func _process(delta: float) -> void:
 		
 		#this is where we load the next scene and send data to other objects
 		
+		#load the scene manager with the string arrays
+		scene_manager.getEnemiesFromName(OutputEnemies)
+		
+		scene_manager.getItemsFromName(OutputOther)
+		
 		#create new scene
 		var lb = LEVEL_BASE.instantiate()
 		get_node("/root/Root/SceneManager").add_child(lb)
 		player.playerActive = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_node("/root/Root/SceneManager/Node2D").queue_free()
 		print("base")
 		

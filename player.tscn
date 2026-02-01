@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4i0e8kpdmll3"]
 
 [ext_resource type="Script" uid="uid://bnwpeqa4xtyv4" path="res://Player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://xtt7ajmao1n6" path="res://Mini_Dungeon_v1.0/Characters/PlayerV3.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://d217vs8mxmrac" path="res://Mini_Dungeon_v1.0/Characters/PlayerV3.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyidc"]
 size = Vector2(17, 20)

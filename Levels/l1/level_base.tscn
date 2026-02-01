@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bx4oqtrfc1pdc"]
 
+[ext_resource type="Script" uid="uid://c65asemegjsyw" path="res://Levels/l1/SpawnAssets.gd" id="1_8gvx5"]
 [ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="1_24mn8"]
 
 [sub_resource type="Gradient" id="Gradient_1nbx2"]
@@ -9,7 +10,15 @@ gradient = SubResource("Gradient_1nbx2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvx5"]
 
-[node name="LevelBase" type="Node" unique_id=1589054656]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8gvx5"]
+vertices = PackedVector2Array(502, 286, -438, 286, -438, -254, 502, -254)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-448, -264, 512, -264, 512, 296, -448, 296)])
+
+[node name="LevelBase" type="Node" unique_id=1589054656 node_paths=PackedStringArray("SpawnPoints", "ItemSpawns")]
+script = ExtResource("1_8gvx5")
+SpawnPoints = [NodePath("SpawnPoints/Spawn1"), NodePath("SpawnPoints/Spawn2"), NodePath("SpawnPoints/Spawn3"), NodePath("SpawnPoints/Spawn4")]
+ItemSpawns = [NodePath("ItemSpawns/Spawn1"), NodePath("ItemSpawns/Spawn2"), NodePath("ItemSpawns/Spawn3"), NodePath("ItemSpawns/Spawn4")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2125818684]
 texture = SubResource("GradientTexture2D_24mn8")
@@ -19,5 +28,36 @@ script = ExtResource("1_24mn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1680983694]
 shape = SubResource("RectangleShape2D_8gvx5")
+
+[node name="SpawnPoints" type="Node" parent="." unique_id=1711348074]
+
+[node name="Spawn1" type="Node2D" parent="SpawnPoints" unique_id=902589294]
+position = Vector2(-368, -153)
+
+[node name="Spawn2" type="Node2D" parent="SpawnPoints" unique_id=1980247882]
+position = Vector2(434, 248)
+
+[node name="Spawn3" type="Node2D" parent="SpawnPoints" unique_id=1475512039]
+position = Vector2(444, -225)
+
+[node name="Spawn4" type="Node2D" parent="SpawnPoints" unique_id=1046314897]
+position = Vector2(-404, 259)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=724165927]
+navigation_polygon = SubResource("NavigationPolygon_8gvx5")
+
+[node name="ItemSpawns" type="Node" parent="." unique_id=738816990]
+
+[node name="Spawn1" type="Node2D" parent="ItemSpawns" unique_id=1658752295]
+position = Vector2(-144, -216)
+
+[node name="Spawn2" type="Node2D" parent="ItemSpawns" unique_id=581358870]
+position = Vector2(120, 160)
+
+[node name="Spawn3" type="Node2D" parent="ItemSpawns" unique_id=716424841]
+position = Vector2(304, -112)
+
+[node name="Spawn4" type="Node2D" parent="ItemSpawns" unique_id=697789536]
+position = Vector2(-48, 152)
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_body_entered"]

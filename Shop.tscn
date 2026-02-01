@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://yjluna0kaqk1"]
 
-[ext_resource type="TileSet" uid="uid://dybrq7878vmi6" path="res://dungeon-tile-set.tres" id="1_c53l5"]
+[ext_resource type="TileSet" uid="uid://fjgr2rn7nx62" path="res://dungeon-tile-set.tres" id="1_c53l5"]
 [ext_resource type="Texture2D" uid="uid://dsjkrhc1nfn57" path="res://Lights.tres" id="2_7ae35"]
 
 [node name="Node2D" type="Node2D" unique_id=1304958743]

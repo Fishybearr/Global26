@@ -10,6 +10,8 @@ class_name Player
 
 @onready var player_health_bar: TextureProgressBar = $"../PlayerHealthBar"
 
+@export var coins := 0;
+
 @export var health := 100
 const ACCELERATION := 5
 const FRICTION := 8
