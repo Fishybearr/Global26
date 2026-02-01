@@ -8,6 +8,13 @@ extends TileMapLayer
 @export var MaskSprite : Sprite2D
 var ReadyLookupTable: Array[Array]
 
+#playerRef
+@onready var player: Node2D = get_node("/root/Root/Player")
+
+#this will be an array of levels we can pull from
+#for now just using one level
+
+
 var tiles := [
 	#other 1
 	#enemies 2

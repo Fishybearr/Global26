@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://vvikk6tlvsvv"]
+
+[ext_resource type="Script" uid="uid://bxxkwfy2jc43p" path="res://Levels/l1/send_spawn.gd" id="1_3nnjv"]
+[ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="2_ggyno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk8tn"]
+size = Vector2(1251, 20)
+
+[sub_resource type="Gradient" id="Gradient_pyidc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3nnjv"]
+gradient = SubResource("Gradient_pyidc")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3nnjv"]
+vertices = PackedVector2Array(558.1328, 294, -566, 294, -566, -310, 565.8672, -310)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-576, -320, 576, -320, 568, 304, -576, 304)])
+
+[sub_resource type="Gradient" id="Gradient_ggyno"]
+colors = PackedColorArray(0, 0, 0, 1, 0.78311825, 0.7634728, 0.97985107, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_memj1"]
+gradient = SubResource("Gradient_ggyno")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rbb0"]
+
+[node name="NewLevel" type="Node2D" unique_id=1038100317]
+
+[node name="Env" type="Node" parent="." unique_id=962143314]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Env" unique_id=790452914]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D" unique_id=800394589]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_jk8tn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Env" unique_id=802418877]
+position = Vector2(-35, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D2" unique_id=896043542]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_jk8tn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Env" unique_id=1335370791]
+position = Vector2(-918, 172)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D3" unique_id=1432652567]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_jk8tn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Env" unique_id=1065805884]
+position = Vector2(250, 171)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D4" unique_id=30135942]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_jk8tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Env/StaticBody2D4/CollisionShape2D" unique_id=98106795]
+position = Vector2(-177.00002, 7.736916e-06)
+scale = Vector2(14.778358, 0.3194034)
+texture = SubResource("GradientTexture2D_3nnjv")
+
+[node name="SpawnPoints" type="Node" parent="." unique_id=937396444]
+script = ExtResource("1_3nnjv")
+
+[node name="Point1" type="Node2D" parent="SpawnPoints" unique_id=1138261037]
+position = Vector2(-457, -259)
+
+[node name="Point2" type="Node2D" parent="SpawnPoints" unique_id=711921322]
+position = Vector2(-428, 173)
+
+[node name="Point3" type="Node2D" parent="SpawnPoints" unique_id=834825389]
+position = Vector2(212, -68)
+
+[node name="Point4" type="Node2D" parent="SpawnPoints" unique_id=1110375300]
+position = Vector2(115, 176)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1984788955]
+navigation_polygon = SubResource("NavigationPolygon_3nnjv")
+
+[node name="Door" type="Area2D" parent="." unique_id=1886788591]
+position = Vector2(0, -297)
+script = ExtResource("2_ggyno")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1379822303]
+position = Vector2(9.536743e-07, -9.536743e-07)
+scale = Vector2(0.31249997, 0.3125)
+texture = SubResource("GradientTexture2D_memj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=192994040]
+shape = SubResource("RectangleShape2D_0rbb0")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

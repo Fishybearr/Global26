@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://wsic6wnvfmt3"]
+
+[ext_resource type="PackedScene" uid="uid://cmxpb2t0xm3ss" path="res://Enemies/Slime.tscn" id="1_7fuap"]
+[ext_resource type="Script" uid="uid://o5rxt7k0g3lc" path="res://spawn_manager.gd" id="2_pifmh"]
+[ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="3_waju4"]
+[ext_resource type="PackedScene" uid="uid://c2q4u6cdbkkp8" path="res://Enemies/Troll.tscn" id="4_djyet"]
+[ext_resource type="PackedScene" uid="uid://dk62a48nf20jo" path="res://Enemies/Snoblin.tscn" id="5_wp05c"]
+[ext_resource type="PackedScene" uid="uid://b3esuv6g3uxw3" path="res://potions/potionBlue.tscn" id="6_uugoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq8q7"]
+size = Vector2(1251, 20)
+
+[sub_resource type="Gradient" id="Gradient_pyidc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vvh5c"]
+gradient = SubResource("Gradient_pyidc")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_28aoi"]
+vertices = PackedVector2Array(563, 299, -571, 299, -571, -315, 563, -315)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-576, -320, 568, -320, 568, 304, -576, 304)])
+agent_radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnlp7"]
+size = Vector2(64, 62)
+
+[sub_resource type="Gradient" id="Gradient_bf3um"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_huihk"]
+gradient = SubResource("Gradient_bf3um")
+
+[node name="Level" type="Node2D" unique_id=486176053]
+
+[node name="Env" type="Node" parent="." unique_id=553450881]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Env" unique_id=983332380]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D" unique_id=1803147294]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Env" unique_id=939036039]
+position = Vector2(-35, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D2" unique_id=2061759855]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Env" unique_id=183871787]
+position = Vector2(-918, 172)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D3" unique_id=2132735474]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Env" unique_id=793175691]
+position = Vector2(250, 171)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Env/StaticBody2D4" unique_id=1832468833]
+position = Vector2(39, -331)
+shape = SubResource("RectangleShape2D_pq8q7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Env/StaticBody2D4/CollisionShape2D" unique_id=1417545076]
+position = Vector2(-177.00002, 7.736916e-06)
+scale = Vector2(14.778358, 0.3194034)
+texture = SubResource("GradientTexture2D_vvh5c")
+
+[node name="Enemy" parent="." unique_id=1328005184 instance=ExtResource("1_7fuap")]
+
+[node name="Enemy2" parent="." unique_id=1349009437 instance=ExtResource("1_7fuap")]
+position = Vector2(-505, -150)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=860972025]
+navigation_polygon = SubResource("NavigationPolygon_28aoi")
+
+[node name="SpawnManager" type="Node" parent="." unique_id=1279707709 node_paths=PackedStringArray("enemies", "spawnPoints")]
+script = ExtResource("2_pifmh")
+enemies = [NodePath("../Enemy"), NodePath("../Enemy2")]
+spawnPoints = [NodePath("Spawn1"), NodePath("Spawn2")]
+
+[node name="Spawn1" type="Node2D" parent="SpawnManager" unique_id=389319859]
+position = Vector2(-195, -259)
+
+[node name="Spawn2" type="Node2D" parent="SpawnManager" unique_id=1283346354]
+position = Vector2(291, -201)
+
+[node name="Door" type="Area2D" parent="." unique_id=1329896099]
+position = Vector2(0, -318)
+script = ExtResource("3_waju4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=80786096]
+shape = SubResource("RectangleShape2D_jnlp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1729762910]
+texture = SubResource("GradientTexture2D_huihk")
+
+[node name="Troll" parent="." unique_id=1549122296 instance=ExtResource("4_djyet")]
+
+[node name="Enemy3" parent="." unique_id=94560902 instance=ExtResource("5_wp05c")]
+position = Vector2(97, -34)
+
+[node name="Potion" parent="." unique_id=813254018 instance=ExtResource("6_uugoh")]
+position = Vector2(-154, 41)
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
