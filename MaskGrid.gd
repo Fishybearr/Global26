@@ -65,13 +65,29 @@ func _ready() -> void:
 	
 	# Set Sprite crap
 	MaskSprite.texture = SpriteResource.sprite
+	Input.warp_mouse(Vector2(40*16,24*16))
 	var mouseposition = local_to_map(get_local_mouse_position())
 	MaskSprite.position = mouseposition*16
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var joy_vector := Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	)
+	var js_speed = 88
+	# deadzones
+	if abs(joy_vector.x) < 0.15:
+		joy_vector.x = 0
+	if abs(joy_vector.y) < 0.15:
+		joy_vector.y = 0
+
 	var actualmouseposition = get_local_mouse_position()
+
+	actualmouseposition.x = actualmouseposition.x+joy_vector.x*js_speed
+	actualmouseposition.y = actualmouseposition.y+joy_vector.y*js_speed	
+	
 	actualmouseposition.x = clamp(actualmouseposition.x,position.x,position.x+Vector2(8*16,8*16).x)
 	actualmouseposition.y = clamp(actualmouseposition.y,position.y,position.y+Vector2(8*16,8*16).y)
 	
@@ -85,6 +101,8 @@ func _process(delta: float) -> void:
 	var mouseposition = local_to_map(actualmouseposition)
 	
 	MaskSprite.position = mouseposition*16
+	
+	
 	if Input.is_action_just_pressed("Place"):
 		var OutputOther = []
 		var OutputEnemies = []
