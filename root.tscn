@@ -7,6 +7,11 @@
 [ext_resource type="Script" uid="uid://dkuxvb6bcwwcw" path="res://pivot_point.gd" id="3_vvh5c"]
 [ext_resource type="Script" uid="uid://bdfspene1ibyr" path="res://scene_manager.gd" id="10_tw3kd"]
 
+[sub_resource type="Gradient" id="Gradient_vvh5c"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_28aoi"]
+gradient = SubResource("Gradient_vvh5c")
+
 [sub_resource type="Gradient" id="Gradient_jnlp7"]
 colors = PackedColorArray(0.15982476, 0.16813096, 0.19908643, 1, 0.16078432, 0.16862746, 0.2, 1)
 
@@ -27,11 +32,6 @@ height = 15
 atlas = ExtResource("3_l8v81")
 region = Rect2(0, 1.5414295, 16.103334, 12.263098)
 
-[sub_resource type="Gradient" id="Gradient_vvh5c"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_28aoi"]
-gradient = SubResource("Gradient_vvh5c")
-
 [node name="Root" type="Node2D" unique_id=1676188793]
 script = ExtResource("1_jnlp7")
 
@@ -40,31 +40,6 @@ script = ExtResource("10_tw3kd")
 levelsTillShop = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1800094761]
-
-[node name="PlayerHealthBar" type="TextureProgressBar" parent="." unique_id=201361919]
-offset_left = -569.0
-offset_top = -313.0
-offset_right = -444.0
-offset_bottom = -298.0
-value = 50.0
-texture_under = SubResource("GradientTexture2D_l8v81")
-texture_progress = SubResource("GradientTexture2D_bf3um")
-
-[node name="CoinImage" type="TextureRect" parent="." unique_id=1346903566]
-offset_left = -574.0
-offset_top = -297.0
-offset_right = -534.0
-offset_bottom = -257.0
-scale = Vector2(1, 0.76)
-texture = SubResource("AtlasTexture_vyht1")
-
-[node name="CoinCount" type="Label" parent="." unique_id=1907096345]
-offset_left = -538.0
-offset_top = -293.0
-offset_right = -498.0
-offset_bottom = -270.0
-size_flags_horizontal = 0
-text = "12"
 
 [node name="Player" parent="." unique_id=197392079 instance=ExtResource("1_pq8q7")]
 position = Vector2(-355, 0)
@@ -80,3 +55,44 @@ scale = Vector2(0.045, 0.045)
 texture = SubResource("GradientTexture2D_28aoi")
 script = ExtResource("3_28aoi")
 gun_damage = 200
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=40957349]
+visible = false
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1726949370]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="CanvasLayer/UI" unique_id=201361919]
+layout_mode = 1
+offset_left = 39.0
+offset_top = 34.0
+offset_right = 164.0
+offset_bottom = 49.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_l8v81")
+texture_progress = SubResource("GradientTexture2D_bf3um")
+
+[node name="CoinImage" type="TextureRect" parent="CanvasLayer/UI" unique_id=1346903566]
+layout_mode = 1
+offset_left = 39.0
+offset_top = 56.0
+offset_right = 79.0
+offset_bottom = 96.0
+scale = Vector2(1, 0.76)
+texture = SubResource("AtlasTexture_vyht1")
+
+[node name="CoinCount" type="Label" parent="CanvasLayer/UI" unique_id=1907096345]
+layout_mode = 1
+offset_left = 78.0
+offset_top = 56.0
+offset_right = 118.0
+offset_bottom = 79.0
+size_flags_horizontal = 0
+text = "12"

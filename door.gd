@@ -26,6 +26,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var ms = MOUSESCENE.instantiate()
 		get_node("/root/Root/SceneManager").add_child(ms)
 		player.playerActive = false
+		get_node("/root/Root/CanvasLayer").visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 		camera_2d.zoom = Vector2(5,5)

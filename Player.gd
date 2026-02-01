@@ -8,9 +8,9 @@ class_name Player
 
 @export var MAXSPEED := 55
 
-@onready var player_health_bar: TextureProgressBar = $"../PlayerHealthBar"
+@onready var player_health_bar: TextureProgressBar = $"../CanvasLayer/UI/PlayerHealthBar"
 
-@onready var coin_count: Label = $"../CoinCount"
+@onready var coin_count: Label = $"../CanvasLayer/UI/CoinCount"
 
 @export var coins := 0;
 
