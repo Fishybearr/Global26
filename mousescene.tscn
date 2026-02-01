@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://fjgr2rn7nx62" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
 [ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
-[ext_resource type="Resource" uid="uid://b1inphrpbv1te" path="res://Masks/Line7.tres" id="3_5pawy"]
+[ext_resource type="Resource" uid="uid://c4kf5qqksojds" path="res://Masks/Quarter.tres" id="3_ctou1"]
 [ext_resource type="Shader" uid="uid://dnnjc2hocrnkm" path="res://edge.gdshader" id="4_5pawy"]
 [ext_resource type="Texture2D" uid="uid://d80s4s47b68o" path="res://Masks/MaskExports/Line7.png" id="5_7cgw2"]
 [ext_resource type="Texture2D" uid="uid://1a2mwsdo6gr5" path="res://SelectionOutsideHiding.png" id="7_ctou1"]
@@ -29,7 +29,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAEAAAABAAAABgABAAEAAAACAAAABgABAAE
 tile_set = ExtResource("2_3nsyv")
 script = ExtResource("9_0dge7")
 background_tile_map = NodePath("../TileMapLayer2")
-SpriteResource = ExtResource("3_5pawy")
+SpriteResource = ExtResource("3_ctou1")
 MaskSprite = NodePath("../Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1533721392]
