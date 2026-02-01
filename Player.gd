@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	#WARNING: THIS WILL CRASH THE GAME IF THE PLAYER DIES
 	#use this to trigger gameover instead of destroying object
 	if health <= 0:
-		queue_free()
+		get_tree().change_scene_to_file.call_deferred("res://UI/DeathScreen.tscn")
 	
 	if playerActive:
 		var input = Vector2(
@@ -55,6 +55,8 @@ func _physics_process(delta: float) -> void:
 	
 	#look_at(get_global_mouse_position())
 
+func _exit_tree() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://UI/DeathScreen.tscn")
 
 func _on_door_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
