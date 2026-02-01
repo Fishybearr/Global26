@@ -62,7 +62,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var mouseposition = local_to_map(get_local_mouse_position())
+	var actualmouseposition = get_local_mouse_position()
+	actualmouseposition.x = clamp(actualmouseposition.x,position.x,position.x+Vector2(8*16,8*16).x)
+	actualmouseposition.y = clamp(actualmouseposition.y,position.y,position.y+Vector2(8*16,8*16).y)
+	
+	var PosBoundaryVec = Vector2(SpriteResource.selectionPosLength,SpriteResource.selectionPosHeight)
+	var NegBoundaryVec = Vector2(SpriteResource.selectionNegLength,SpriteResource.selectionNegHeight)
+	
+	actualmouseposition.x = clamp(actualmouseposition.x,position.x,position.x+8*16-PosBoundaryVec.x*16)
+	actualmouseposition.y = clamp(actualmouseposition.y,position.y,position.y+8*16-PosBoundaryVec.y*16)
+	actualmouseposition.x = clamp(actualmouseposition.x,position.x+NegBoundaryVec.x*16,position.x+8*16)
+	actualmouseposition.y = clamp(actualmouseposition.y,position.y+NegBoundaryVec.y*16,position.y+8*16)
+	var mouseposition = local_to_map(actualmouseposition)
+	
 	MaskSprite.position = mouseposition*16
 	if Input.is_action_just_pressed("Place"):
 		var OutputOther = []
