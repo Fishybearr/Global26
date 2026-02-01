@@ -79,7 +79,7 @@ func _ready() -> void:
 	
 	# Set Sprite crap
 	MaskSprite.texture = SpriteResource.sprite
-	Input.warp_mouse(Vector2(40*16,24*16))
+	Input.warp_mouse(Vector2(60*16,36*16))
 	var mouseposition = local_to_map(get_local_mouse_position())
 	MaskSprite.position = mouseposition*16
 

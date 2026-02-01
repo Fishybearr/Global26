@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Mask" format=3 uid="uid://dj0hjnssu7vea"]
+
+[ext_resource type="Script" uid="uid://13ihajno4yyt" path="res://Masks/Maskst.gd" id="1_jukrg"]
+[ext_resource type="Texture2D" uid="uid://esvhg30eakxl" path="res://Masks/MaskExports/X7.png" id="2_jukrg"]
+
+[resource]
+script = ExtResource("1_jukrg")
+sprite = ExtResource("2_jukrg")
+offsets = Array[Vector2i]([Vector2i(-1, -1), Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(0, 0), Vector2i(-2, -2), Vector2i(-2, 2), Vector2i(2, -2), Vector2i(2, 2), Vector2i(-3, -3), Vector2i(3, -3), Vector2i(-3, 3), Vector2i(3, 3)])
+selectionPosLength = 3
+selectionPosHeight = 3
+selectionNegLength = 3
+selectionNegHeight = 3
