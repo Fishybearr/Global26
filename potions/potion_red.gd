@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var gun: Sprite2D = get_node("/root/Root/Player/StaticBody2D/GunPoint")
+@onready var player: Node2D = get_node("/root/Root/Player")
 
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -18,5 +18,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("got potion")
-		gun.gun_damage += 10
+		if player.health <= 100:
+			player.health += 10
 		queue_free()

@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
 		body.health -= bulletDamage;
-		print(bulletDamage)
+		#print(bulletDamage)
 	queue_free()

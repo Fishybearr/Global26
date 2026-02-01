@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://irxnh1e4k85u"]
+
+[ext_resource type="Script" uid="uid://bhj6pladdwdeu" path="res://potions/potion_red.gd" id="1_ff6vi"]
+[ext_resource type="Texture2D" uid="uid://h2vftwd1je4u" path="res://Mini_Dungeon_v1.0/Objects/PotionL_Red.png" id="2_ff6vi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf3um"]
+size = Vector2(20, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq4k3"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijlk8"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw6ap"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vij5h"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7d2n"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqh0i"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lchgd"]
+atlas = ExtResource("2_ff6vi")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grvoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq4k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijlk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw6ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vij5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7d2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqh0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lchgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Potion" type="Area2D" unique_id=813254018]
+script = ExtResource("1_ff6vi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1043012641]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_bf3um")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=289816356]
+scale = Vector2(2.013708, 2.013708)
+sprite_frames = SubResource("SpriteFrames_grvoj")
+frame_progress = 0.9305456
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

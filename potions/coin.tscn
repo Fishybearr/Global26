@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cuy1qmad8fikn"]
+
+[ext_resource type="Script" uid="uid://b1i4srhrj307j" path="res://potions/coin.gd" id="1_evap8"]
+[ext_resource type="Texture2D" uid="uid://d05t1rdyvvw7v" path="res://Mini_Dungeon_v1.0/Objects/Coin.png" id="2_iqb8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf3um"]
+size = Vector2(20, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4lsm"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062vj"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1nch"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoc2u"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cehie"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjhd0"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrort"]
+atlas = ExtResource("2_iqb8i")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3e5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4lsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_062vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1nch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoc2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cehie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjhd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrort")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Area2D" unique_id=813254018]
+script = ExtResource("1_evap8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1043012641]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_bf3um")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=289816356]
+scale = Vector2(2.013708, 2.013708)
+sprite_frames = SubResource("SpriteFrames_k3e5x")
+frame_progress = 0.9119431
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

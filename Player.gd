@@ -10,11 +10,17 @@ class_name Player
 
 @onready var player_health_bar: TextureProgressBar = $"../PlayerHealthBar"
 
+@onready var coin_count: Label = $"../CoinCount"
+
+@export var coins := 0;
+
 @export var health := 100
 const ACCELERATION := 5
 const FRICTION := 8
 
 func _physics_process(delta: float) -> void:
+	coin_count.text = str(coins)
+	
 	player_health_bar.value = health
 	
 	#WARNING: THIS WILL CRASH THE GAME IF THE PLAYER DIES

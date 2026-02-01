@@ -2,11 +2,17 @@
 
 [ext_resource type="TileSet" uid="uid://fjgr2rn7nx62" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
 [ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
-[ext_resource type="Resource" uid="uid://cqrxurrwplum5" path="res://Masks/L2.tres" id="3_871il"]
+[ext_resource type="Resource" uid="uid://b1inphrpbv1te" path="res://Masks/Line7.tres" id="3_5pawy"]
+[ext_resource type="Shader" uid="uid://dnnjc2hocrnkm" path="res://edge.gdshader" id="4_5pawy"]
 [ext_resource type="Script" uid="uid://dwrebswaaeaxu" path="res://MaskGrid.gd" id="9_0dge7"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gilrd"]
-frequency = 0.1168
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cgw2"]
+shader = ExtResource("4_5pawy")
+shader_parameter/ant_color_1 = Color(1, 1, 1, 1)
+shader_parameter/ant_color_2 = Color(0, 0, 0, 1)
+shader_parameter/ant_width = 2.0
+shader_parameter/ant_length = 10.0
+shader_parameter/ant_speed = 30.0
 
 [node name="Node2D" type="Node2D" unique_id=1553022676]
 
@@ -17,12 +23,12 @@ tile_set = ExtResource("2_3nsyv")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1233633999 node_paths=PackedStringArray("background_tile_map", "MaskSprite")]
 tile_set = ExtResource("2_3nsyv")
 script = ExtResource("9_0dge7")
-noise = SubResource("FastNoiseLite_gilrd")
 background_tile_map = NodePath("../TileMapLayer2")
-SpriteResource = ExtResource("3_871il")
+SpriteResource = ExtResource("3_5pawy")
 MaskSprite = NodePath("../Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1533721392]
+material = SubResource("ShaderMaterial_7cgw2")
 position = Vector2(-8, -8)
 offset = Vector2(8, 8)
 script = ExtResource("2_lk4fn")
