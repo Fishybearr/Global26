@@ -14,6 +14,8 @@ extends Node
 
 @export var enemyCounter := 0;
 
+@export var levelsTillShop := 5;
+
 #enemies
 const SLIME = preload("uid://cmxpb2t0xm3ss")
 const SNOBLIN = preload("uid://dk62a48nf20jo")
@@ -42,15 +44,15 @@ func getEnemiesFromName(names : Array):
 	for n in range(names.size()):
 		if names[n] == "Slime":
 			enemyObjects[n] = SLIME.instantiate()
-			get_tree().root.add_child(enemyObjects[n])
+			add_child(enemyObjects[n])
 		
 		elif names[n] == "Snoblin":
 			enemyObjects[n] = SNOBLIN.instantiate()
-			get_tree().root.add_child(enemyObjects[n])
+			add_child(enemyObjects[n])
 			
 		elif names[n] == "Troll":
 			enemyObjects[n] = TROLL.instantiate()
-			get_tree().root.add_child(enemyObjects[n])
+			add_child(enemyObjects[n])
 
 #get the names of the items and convert them to actual items to send to the scene
 func getItemsFromName(names: Array):
@@ -58,17 +60,27 @@ func getItemsFromName(names: Array):
 	for n in range(names.size()):
 		if names[n] == "BluePotion":
 			itemObjects[n] = POTION_BLUE.instantiate()
-			get_tree().root.add_child(itemObjects[n])
+			add_child(itemObjects[n])
 			
 		#update this to actual coin object	
 		elif names[n] == "Coin":
 			itemObjects[n] = COIN.instantiate()
-			get_tree().root.add_child(itemObjects[n])
+			add_child(itemObjects[n])
 		
 		#update this to actual red potion 
 		elif names[n] == "RedPotion":
 			itemObjects[n] = POTION_RED.instantiate()
-			get_tree().root.add_child(itemObjects[n])
+			add_child(itemObjects[n])
+			#TODO: parent this to the actual level object
+			
+		elif names[n] == "Box":
+			itemObjects[n] = POTION_RED.instantiate()
+			add_child(itemObjects[n])
+			#TODO: parent this to the actual level object
+			
+		elif names[n] == "Spike":
+			itemObjects[n] = POTION_RED.instantiate()
+			add_child(itemObjects[n])
 			#TODO: parent this to the actual level object
 			
 		#Add all other items here

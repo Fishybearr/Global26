@@ -15,6 +15,12 @@ var MOUSESCENE = load("uid://bpwrehfeq5xf2")
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player && scene_manager.enemyCounter <= 0:
 		print("next level") 
+		
+		
+		for i in scene_manager.itemObjects:
+			if is_instance_valid(i):
+				i.queue_free();
+			
 		print(MOUSESCENE)
 		var ms = MOUSESCENE.instantiate()
 		get_node("/root/Root/SceneManager").add_child(ms)
@@ -22,7 +28,11 @@ func _on_body_entered(body: Node2D) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 		
-		get_node("/root/Root/SceneManager/LevelBase").queue_free()
+		var l = get_node("/root/Root/SceneManager/LevelBase")
+		if l == null:
+			get_node("/root/Root/SceneManager/LevelBase2").queue_free()
+		else:
+			l.queue_free()
 		
 
 		
