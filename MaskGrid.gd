@@ -7,6 +7,7 @@ extends TileMapLayer
 @export var MaskSprite : Sprite2D
 var ReadyLookupTable: Array[Array]
 
+
 #playerRef
 @onready var player: Node2D = get_node("/root/Root/Player")
 
@@ -17,6 +18,8 @@ const SHOP_LEVEL = preload("uid://w6uyoj41r6m6")
 
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")
+
+@onready var camera_2d: Camera2D = get_node("/root/Root/Camera2D")
 
 
 var tiles := [
@@ -131,6 +134,8 @@ func _process(delta: float) -> void:
 		print(OutputWeapons)
 		
 		#this is where we load the next scene and send data to other objects
+		player.global_position = Vector2(100,100)
+		camera_2d.zoom = Vector2(1,1)
 		
 		#load the scene manager with the string arrays
 		scene_manager.getEnemiesFromName(OutputEnemies)
