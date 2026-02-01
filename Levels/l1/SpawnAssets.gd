@@ -2,25 +2,21 @@ extends Node
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")
 
+@export var spawnRef : Node
+@export var itemRef : Node
 
-@export var SpawnPoints: Array[Node]
-
-@export var ItemSpawns: Array[Node]
+var SpawnPoints : Array[Node2D]
+var ItemSpawns : Array[Node2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SetEnemyPos()
 	SetItemPos()
-	#this will set the positions of the actual enemy objects after they've been created by SceneMange
+	for child in spawnRef.get_children():
+		SpawnPoints.push_back(child)
 	
-		
-		#populate each spawn
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
+	for child in itemRef.get_children():
+		ItemSpawns.push_back(child)
 	
 func SetEnemyPos():
 	await get_tree().create_timer(.05).timeout

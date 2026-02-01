@@ -13,7 +13,7 @@ var ReadyLookupTable: Array[Array]
 
 #this will be an array of levels we can pull from
 #for now just using one level
-var LEVEL_BASE = load("uid://bx4oqtrfc1pdc")
+var LEVEL_BASE = load("res://MazeDungeon.tscn")
 const SHOP_LEVEL = preload("uid://w6uyoj41r6m6")
 
 
