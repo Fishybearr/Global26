@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c65asemegjsyw" path="res://Levels/l1/SpawnAssets.gd" id="1_tuhac"]
 [ext_resource type="Script" uid="uid://basbvxp07nex4" path="res://mazeCameraFollow.gd" id="3_dfov7"]
 [ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="4_gkwjk"]
+[ext_resource type="AudioStream" uid="uid://cbkjgn7v4xyqv" path="res://Sounds/Quantize.ogg" id="5_nw78d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw78d"]
 size = Vector2(20, 31)
@@ -133,5 +134,10 @@ script = ExtResource("4_gkwjk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=115283032]
 position = Vector2(-66.25, -8.75)
 shape = SubResource("RectangleShape2D_nw78d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=48760519]
+stream = ExtResource("5_nw78d")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

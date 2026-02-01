@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cylppr3pp8ip4" path="res://UI/main_menu.gd" id="1_b37jj"]
 [ext_resource type="Texture2D" uid="uid://d217vs8mxmrac" path="res://Mini_Dungeon_v1.0/Characters/PlayerV3.png" id="1_uahxu"]
+[ext_resource type="AudioStream" uid="uid://c6vmqxjivv5d7" path="res://Sounds/heroic.ogg" id="3_8aown"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b37jj"]
 atlas = ExtResource("1_uahxu")
@@ -87,6 +88,11 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_b37jj")
 expand_mode = 4
 flip_h = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1835807186]
+stream = ExtResource("3_8aown")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button" to="." method="_on_button_pressed_play"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Button3" to="." method="_on_button_3_pressed_credits"]

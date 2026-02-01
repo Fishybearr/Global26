@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="4_icihg"]
 [ext_resource type="Script" uid="uid://b5t617dqkvbdt" path="res://Levels/l1/open_shop.gd" id="5_x6s7k"]
 [ext_resource type="Texture2D" uid="uid://cplx8e3ow43m3" path="res://Mini_Dungeon_v1.0/Characters/Wizard.png" id="6_icihg"]
+[ext_resource type="AudioStream" uid="uid://cbkjgn7v4xyqv" path="res://Sounds/Quantize.ogg" id="7_icihg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw78d"]
 size = Vector2(20, 33)
@@ -183,6 +184,12 @@ sprite_frames = SubResource("SpriteFrames_joli3")
 position = Vector2(0.5194091, 2.3374197)
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_x6s7k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1456294080]
+stream = ExtResource("7_icihg")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Shop" to="Shop" method="_on_body_entered"]

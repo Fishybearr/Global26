@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("hit_attack") && can_shoot:
 			#print("shhoting");
 			ShootDelay()
+			$AudioStreamPlayer.play()
 			var bulletInstance = bullet.instantiate();
 			bulletInstance.global_position = global_position
 			bulletInstance.global_rotation = global_rotation

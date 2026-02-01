@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4nyx8cgmhrny"]
 
 [ext_resource type="Script" uid="uid://lmoc270yp64v" path="res://bullet.gd" id="1_v7oki"]
+[ext_resource type="AudioStream" uid="uid://dlajo1pj8n3eo" path="res://Sounds/Something.wav" id="2_v8qja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]
 size = Vector2(4, 10)
@@ -25,5 +26,8 @@ shape = SubResource("RectangleShape2D_rtl8c")
 rotation = 1.5707964
 scale = Vector2(0.04, 0.14)
 texture = SubResource("GradientTexture2D_v7oki")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2013103186]
+stream = ExtResource("2_v8qja")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

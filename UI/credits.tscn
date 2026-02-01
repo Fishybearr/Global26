@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cafrb66vw7h2n"]
 
 [ext_resource type="Script" uid="uid://ojjkbffolcx1" path="res://UI/credits.gd" id="1_ng644"]
+[ext_resource type="AudioStream" uid="uid://c6vmqxjivv5d7" path="res://Sounds/heroic.ogg" id="2_uuuvy"]
 
 [node name="Credits" type="Control" unique_id=381639914]
 layout_mode = 3
@@ -138,5 +139,11 @@ text = "Music Assistance"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1159557873]
+stream = ExtResource("2_uuuvy")
+pitch_scale = 1.11
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

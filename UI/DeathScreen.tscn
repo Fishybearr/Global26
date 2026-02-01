@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bf3us34yp1rfq"]
 
 [ext_resource type="Script" uid="uid://c6monnmy4jv8d" path="res://UI/DeathButtons.gd" id="1_6rwxw"]
+[ext_resource type="AudioStream" uid="uid://pdn5cjwk2mva" path="res://Sounds/death.ogg" id="2_oaxie"]
 
 [node name="DeathScreen" type="Control" unique_id=1081268410]
 z_index = 100
@@ -61,6 +62,10 @@ script = ExtResource("1_6rwxw")
 layout_mode = 2
 size_flags_vertical = 8
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1492740139]
+stream = ExtResource("2_oaxie")
+autoplay = true
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="ColorRect/VBoxContainer/Button" method="_on_retry_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button2" to="ColorRect/VBoxContainer/Button" method="_on_exit_pressed"]
