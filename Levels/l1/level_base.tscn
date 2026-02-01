@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bx4oqtrfc1pdc"]
+
+[ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="1_24mn8"]
+
+[sub_resource type="Gradient" id="Gradient_1nbx2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24mn8"]
+gradient = SubResource("Gradient_1nbx2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvx5"]
+
+[node name="LevelBase" type="Node" unique_id=1589054656]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2125818684]
+texture = SubResource("GradientTexture2D_24mn8")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=237414680]
+script = ExtResource("1_24mn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1680983694]
+shape = SubResource("RectangleShape2D_8gvx5")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_body_entered"]

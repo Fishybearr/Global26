@@ -13,6 +13,8 @@ var ReadyLookupTable: Array[Array]
 
 #this will be an array of levels we can pull from
 #for now just using one level
+var LEVEL_BASE = load("uid://bx4oqtrfc1pdc")
+
 
 
 var tiles := [
@@ -89,3 +91,15 @@ func _process(delta: float) -> void:
 		print(OutputOther)
 		print(OutputEnemies)
 		print(OutputWeapons)
+		
+		#this is where we load the next scene and send data to other objects
+		
+		#create new scene
+		var lb = LEVEL_BASE.instantiate()
+		get_node("/root/Root/SceneManager").add_child(lb)
+		player.playerActive = true
+		get_node("/root/Root/SceneManager/Node2D").queue_free()
+		print("base")
+		
+		
+		

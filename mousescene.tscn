@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpwrehfeq5xf2"]
 
 [ext_resource type="TileSet" uid="uid://fjgr2rn7nx62" path="res://dungeon-tile-set.tres" id="2_3nsyv"]
-[ext_resource type="Script" path="res://polygon_2d.gd" id="2_lk4fn"]
+[ext_resource type="Script" uid="uid://dknfrnsrjvlyj" path="res://polygon_2d.gd" id="2_lk4fn"]
 [ext_resource type="Resource" uid="uid://cqrxurrwplum5" path="res://Masks/L2.tres" id="3_871il"]
 [ext_resource type="Script" uid="uid://dwrebswaaeaxu" path="res://MaskGrid.gd" id="9_0dge7"]
 
