@@ -2,9 +2,11 @@ extends Node2D
 
 @onready var PlayerRef : Player = $".."
 
+var MouseActive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MouseActive == true	
 	pass # Replace with function body.
 
 
@@ -15,6 +17,8 @@ func _process(delta: float) -> void:
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 	)
 	if (joy_vector.x*joy_vector.y!=0):
+		if (MouseActive != false):
+			MouseActive == false
 		look_at(PlayerRef.position+joy_vector)
-	else:
+	elif (MouseActive == true):
 		look_at(get_global_mouse_position())
