@@ -29,7 +29,7 @@ func _on_buttonL_pressed() -> void:
 		print("bought")
 		player.coins -= 5
 		
-		scene_manager.mask = masks[2]
+		scene_manager.mask = masks.pick_random()
 		player.playerActive = true
 		player.global_position = oldPos
 		queue_free()
@@ -44,7 +44,7 @@ func _on_buttonM_pressed() -> void:
 		print("bought")
 		player.coins -= 5
 		
-		scene_manager.mask = masks[4]
+		scene_manager.mask = masks[10]
 		player.playerActive = true
 		player.global_position = oldPos
 		queue_free()
@@ -60,13 +60,15 @@ func _on_buttonR_pressed() -> void:
 		player.coins -= 5
 		
 		#set the mask in SceneManager and then set that when we load the selection scene
-		scene_manager.mask = masks[0]
+		scene_manager.mask =  masks.pick_random()
 		player.playerActive = true
 		player.global_position = oldPos
 		queue_free()
 	else:
 		print("no money")
-	#LoadNextLevel()
+		#player.playerActive = true
+		#player.global_position = oldPos
+		#queue_free()
 		
 		
 func LoadNextLevel():
@@ -82,7 +84,7 @@ func LoadNextLevel():
 	player.playerActive = false
 	get_node("/root/Root/CanvasLayer").visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-
+#LoadNextLevel()
 	camera_2d.zoom = Vector2(5,5)
 	camera_2d.global_position = Vector2(0,0)
 	var l = get_node("/root/Root/SceneManager/LevelBase")
@@ -92,3 +94,9 @@ func LoadNextLevel():
 		l.queue_free()
 		await l.tree_exited
 		camera_2d.global_position = Vector2.ZERO
+
+
+func _on_close_button_pressed() -> void:
+	player.playerActive = true
+	player.global_position = oldPos
+	queue_free()

@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://bwd20fk3b2cy0"]
 
 [ext_resource type="Script" uid="uid://bf3ulqgcw4w8l" path="res://UI/shop_menu.gd" id="1_mocmp"]
-[ext_resource type="Texture2D" uid="uid://b4qgraunljait" path="res://Masks/MaskExports/L2.png" id="1_t740p"]
-[ext_resource type="Resource" uid="uid://ob0jlu4bbxcg" path="res://Masks/Half.tres" id="2_bdxb8"]
-[ext_resource type="Texture2D" uid="uid://poxjxuusd2py" path="res://Masks/MaskExports/L3.png" id="2_mocmp"]
 [ext_resource type="Resource" uid="uid://cqrxurrwplum5" path="res://Masks/L2.tres" id="3_gghcw"]
-[ext_resource type="Texture2D" uid="uid://d80s4s47b68o" path="res://Masks/MaskExports/Line7.png" id="3_qf6hq"]
 [ext_resource type="Resource" uid="uid://ch5usuabxn16s" path="res://Masks/L3.tres" id="4_qt6hp"]
 [ext_resource type="Resource" uid="uid://c2es78najrf12" path="res://Masks/L5.tres" id="5_fl605"]
 [ext_resource type="Resource" uid="uid://ce822y8myofw8" path="res://Masks/L7.tres" id="6_l3ygi"]
@@ -13,7 +9,19 @@
 [ext_resource type="Resource" uid="uid://i1brr4mbta25" path="res://Masks/Line3.tres" id="8_0emaq"]
 [ext_resource type="Resource" uid="uid://cyh5bdf1b80ql" path="res://Masks/Line5.tres" id="9_23sq0"]
 [ext_resource type="Resource" uid="uid://b1inphrpbv1te" path="res://Masks/Line7.tres" id="10_2op61"]
+[ext_resource type="Resource" uid="uid://domur1pq0b4r3" path="res://Masks/X5.tres" id="11_gghcw"]
 [ext_resource type="Resource" uid="uid://byck1fr12qmly" path="res://Masks/Line9.tres" id="11_v3f4p"]
+[ext_resource type="Resource" uid="uid://buvyiknhljlbe" path="res://Masks/Loss.tres" id="12_qt6hp"]
+[ext_resource type="Texture2D" uid="uid://mqc5ftrxicjq" path="res://mark3.png" id="13_onciv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdxb8"]
+bg_color = Color(0.76829934, 0.1567435, 0.15839335, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gghcw"]
+bg_color = Color(0.7541148, 0.30812523, 0.24061641, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt6hp"]
+bg_color = Color(0.44779682, 0, 0.03281225, 1)
 
 [node name="ShopMenu" type="Control" unique_id=1886710300]
 layout_mode = 3
@@ -23,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mocmp")
-masks = Array[Resource]([ExtResource("5_fl605"), ExtResource("2_bdxb8"), ExtResource("3_gghcw"), ExtResource("4_qt6hp"), ExtResource("6_l3ygi"), ExtResource("7_30y4k"), ExtResource("8_0emaq"), ExtResource("9_23sq0"), ExtResource("10_2op61"), ExtResource("11_v3f4p")])
+masks = Array[Resource]([ExtResource("5_fl605"), ExtResource("3_gghcw"), ExtResource("4_qt6hp"), ExtResource("6_l3ygi"), ExtResource("7_30y4k"), ExtResource("8_0emaq"), ExtResource("9_23sq0"), ExtResource("10_2op61"), ExtResource("11_v3f4p"), ExtResource("11_gghcw"), ExtResource("12_qt6hp")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1725828280]
 layout_mode = 1
@@ -32,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+color = Color(0.32889298, 0.3587652, 0.44498566, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=1811083721]
 layout_mode = 1
@@ -47,24 +55,30 @@ offset_right = 136.0
 offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=1085605861]
 layout_mode = 2
+theme_override_constants/separation = 23
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=881446207]
 layout_mode = 2
-texture = ExtResource("1_t740p")
+texture = ExtResource("13_onciv")
 
 [node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1686734440]
 layout_mode = 2
 text = "Buy"
 
+[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=1218139687]
+layout_mode = 2
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=1006855161]
 layout_mode = 2
+theme_override_constants/separation = 23
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer2" unique_id=1452668044]
 layout_mode = 2
-texture = ExtResource("2_mocmp")
+texture = ExtResource("13_onciv")
 
 [node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer2" unique_id=1903691804]
 layout_mode = 2
@@ -72,15 +86,25 @@ text = "Buy"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=344208790]
 layout_mode = 2
+theme_override_constants/separation = 23
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/HBoxContainer/VBoxContainer3" unique_id=1621726224]
 layout_mode = 2
-texture = ExtResource("3_qf6hq")
+texture = ExtResource("13_onciv")
 
 [node name="Button" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer3" unique_id=77255264]
 layout_mode = 2
 text = "Buy"
 
+[node name="Button" type="Button" parent="ColorRect/HBoxContainer" unique_id=287288985]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bdxb8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_gghcw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qt6hp")
+text = "   X   "
+
 [connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/Button" to="." method="_on_buttonL_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer2/Button" to="." method="_on_buttonM_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer3/Button" to="." method="_on_buttonR_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Button" to="." method="_on_close_button_pressed"]
