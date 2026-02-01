@@ -33,7 +33,10 @@ func _on_body_entered(body: Node2D) -> void:
 		camera_2d.global_position = Vector2(0,0)
 		var l = get_node("/root/Root/SceneManager/LevelBase")
 		if l == null:
-			get_node("/root/Root/SceneManager/LevelBase2").queue_free()
+			var l2 = get_node("/root/Root/SceneManager/LevelBase2")
+			l2.queue_free()
+			await l2.tree_exited
+			camera_2d.global_position = Vector2.ZERO
 		else:
 			l.queue_free()
 			await l.tree_exited

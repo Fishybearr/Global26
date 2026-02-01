@@ -14,7 +14,8 @@ var ReadyLookupTable: Array[Array]
 #this will be an array of levels we can pull from
 #for now just using one level
 var LEVEL_BASE = load("res://MazeDungeon.tscn")
-const SHOP_LEVEL = preload("uid://w6uyoj41r6m6")
+#const SHOP_LEVEL = preload("uid://w6uyoj41r6m6")
+const SHOP_LEVEL = preload("uid://bttuid8ch73jo")
 
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")

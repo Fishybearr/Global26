@@ -6,10 +6,18 @@ extends Control
 
 @onready var scene_manager: Node = get_node("/root/Root/SceneManager")
 
+var MOUSESCENE = load("uid://bpwrehfeq5xf2")
+
+@onready var camera_2d: Camera2D = get_node("/root/Root/Camera2D")
+
+var oldPos
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
+	oldPos = player.global_position
+	oldPos = Vector2(oldPos.x,oldPos.y + 50)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,10 +31,12 @@ func _on_buttonL_pressed() -> void:
 		
 		scene_manager.mask = masks[2]
 		player.playerActive = true
-		player.global_position = Vector2(100,100)
+		player.global_position = oldPos
 		queue_free()
 	else:
 		print("no money")
+		
+	#LoadNextLevel()
 
 
 func _on_buttonM_pressed() -> void:
@@ -36,10 +46,12 @@ func _on_buttonM_pressed() -> void:
 		
 		scene_manager.mask = masks[4]
 		player.playerActive = true
-		player.global_position = Vector2(100,100)
+		player.global_position = oldPos
 		queue_free()
 	else:
 		print("no money")
+	
+	#LoadNextLevel()
 
 
 func _on_buttonR_pressed() -> void:
@@ -50,7 +62,33 @@ func _on_buttonR_pressed() -> void:
 		#set the mask in SceneManager and then set that when we load the selection scene
 		scene_manager.mask = masks[0]
 		player.playerActive = true
-		player.global_position = Vector2(100,100)
+		player.global_position = oldPos
 		queue_free()
 	else:
 		print("no money")
+	#LoadNextLevel()
+		
+		
+func LoadNextLevel():
+	
+	for i in scene_manager.itemObjects:
+		if is_instance_valid(i):
+			i.queue_free();
+			
+	
+	var ms = MOUSESCENE.instantiate()
+	get_node("/root/Root/SceneManager").add_child(ms)
+	#ms.global_position = Vector2(0,0)
+	player.playerActive = false
+	get_node("/root/Root/CanvasLayer").visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
+	camera_2d.zoom = Vector2(5,5)
+	camera_2d.global_position = Vector2(0,0)
+	var l = get_node("/root/Root/SceneManager/LevelBase")
+	if l == null:
+		get_node("/root/Root/SceneManager/LevelBase2").queue_free()
+	else:
+		l.queue_free()
+		await l.tree_exited
+		camera_2d.global_position = Vector2.ZERO
