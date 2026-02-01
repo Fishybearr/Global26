@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cafrb66vw7h2n"]
+
+[ext_resource type="Script" uid="uid://ojjkbffolcx1" path="res://UI/credits.gd" id="1_ng644"]
+
+[node name="Credits" type="Control" unique_id=381639914]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ng644")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1038046458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 59
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=387841697]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=883203860]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2" unique_id=810580238]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 43
+text = "Credits:"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=1249156539]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer3" unique_id=1733281063]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer3/VBoxContainer" unique_id=1983370770]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Aaron Radliff"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer3/VBoxContainer" unique_id=428703915]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Programmer"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=1384451503]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer4" unique_id=833819915]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer" unique_id=552565335]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Frank Bubbico"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer4/VBoxContainer" unique_id=2017031038]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Programmer, Musician, Audio "
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer" unique_id=1626474152]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer5" unique_id=1126772904]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer5/VBoxContainer" unique_id=362246201]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Jeremiah Opare "
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer5/VBoxContainer" unique_id=946515131]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Designer"
+
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer" unique_id=736725852]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer6" unique_id=768341484]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer6/VBoxContainer" unique_id=604035527]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Wolfgang Groetz"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer6/VBoxContainer" unique_id=11633824]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Bit of everything, lot of nothing"
+
+[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer" unique_id=411038622]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer7" unique_id=358508925]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer7/VBoxContainer" unique_id=1574905789]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Brian Cheverie"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer7/VBoxContainer" unique_id=476804204]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Composer, Musician"
+
+[node name="MarginContainer8" type="MarginContainer" parent="VBoxContainer" unique_id=2142194970]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer8" unique_id=1072193601]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer8/VBoxContainer" unique_id=758697881]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 29
+text = "Garrison Bouchard-Ferdon"
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer8/VBoxContainer" unique_id=1958201458]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music Assistance"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=161663637]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
