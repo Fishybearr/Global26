@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 		move_and_slide()
 	else:
-		position = Vector2(-100,-100)
+		position = Vector2(-1000,-1000)
 		velocity = Vector2.ZERO
 	
 	#look_at(get_global_mouse_position())
