@@ -69,6 +69,13 @@ func attackPlayer():
 	#print("attacking")
 	attackAnim()
 	player.health -= damage
+	var tween = get_tree().create_tween()
+
+	# Flash to white (or any color) instantly
+	player.modulate = Color.RED 
+	
+	# Tween back to normal white (1,1,1,1) over 0.2 seconds
+	tween.tween_property(player, "modulate", Color.WHITE, 0.2)
 	await get_tree().create_timer(2).timeout
 	can_attack = true;
 	
