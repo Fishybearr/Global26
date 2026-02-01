@@ -1,6 +1,5 @@
 extends TileMapLayer
 
-@export var noise: FastNoiseLite
 # use tile data runtime update (coords vector2i)
 # tile data runtime update
 @export var background_tile_map : TileMapLayer
@@ -53,16 +52,14 @@ func _ready() -> void:
 	#rng 
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
-	noise.seed=rng.randi()
 	
 	# loop through 9x9 grid
 	for y in range(0, 9):
 		for x in range(0, 9):
 			# normalize and scale noise
 			var maxVal: int = tiles.size()
-			var out = (noise.get_noise_2d(x, y) + 1) / 2.0
-			out *= maxVal
-			var outInt : int = round(out)
+			var randFloat := rng.randf()
+			var outInt : int = randFloat * maxVal
 			# set bg
 			background_tile_map.set_cell(Vector2(x, y), 4, Vector2i.ZERO)
 			set_cell(Vector2(x, y), tiles[outInt][0].x, Vector2i(tiles[outInt][0].y, tiles[outInt][0].z))
