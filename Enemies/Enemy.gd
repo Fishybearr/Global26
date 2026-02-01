@@ -26,15 +26,12 @@ func _ready() -> void:
 	
 	#disable collisions with player
 	add_collision_exception_with(player)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$NavigationAgent2D.target_position = player.global_position
 	
 #TODO: check when near player, if close enough, then we should run attack anim on a timer
 # at a random interval
 func _physics_process(delta: float) -> void:
+	if is_instance_valid(player):
+		$NavigationAgent2D.target_position = player.global_position
 	
 	#doesn't need to happen every physics tick but it works for now
 	health_bar.value = health
@@ -42,8 +39,9 @@ func _physics_process(delta: float) -> void:
 	
 	#if player's within like 60 we can attack
 	#print(global_position.distance_to(player.global_position))
-	if global_position.distance_to(player.global_position) < 60 && can_attack == true:
-		attackPlayer()
+	if is_instance_valid(player):
+		if global_position.distance_to(player.global_position) < 60 && can_attack == true:
+			attackPlayer()
 	
 	if health  <= 0:
 		scene_manager.enemyCounter -= 1;
