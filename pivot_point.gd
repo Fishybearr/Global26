@@ -16,6 +16,11 @@ func _process(delta: float) -> void:
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
 		Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 	)
+	if abs(joy_vector.x) < 0.15:
+		joy_vector.x = 0
+	if abs(joy_vector.y) < 0.15:
+		joy_vector.y = 0
+	
 	if (joy_vector.x*joy_vector.y!=0):
 		if (MouseActive != false):
 			MouseActive == false
