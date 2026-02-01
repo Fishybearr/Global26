@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxxj737stbnvn" path="res://Mini_Dungeon_v1.0/Tilesets/Door_2.png" id="4_0vkam"]
 [ext_resource type="Texture2D" uid="uid://cdqhn0ui0k5e3" path="res://Minimal Dungeon - Asset Pack DEMO/Players/Dwarf/dwarf x1.png" id="4_njd0n"]
 [ext_resource type="Texture2D" uid="uid://wdvyo5sfl5f2" path="res://Mini_Dungeon_v1.0/Tilesets/DoubleDoor.png" id="5_6bvle"]
+[ext_resource type="Texture2D" uid="uid://dc4yqapljl1im" path="res://Snoblin_Free_Skeleton/Assets/Skeleton/skeleton.png" id="5_7esgm"]
 [ext_resource type="Texture2D" uid="uid://d7atelsrwfp7" path="res://Mini_Dungeon_v1.0/Tilesets/Floor.png" id="6_jb50u"]
 [ext_resource type="Texture2D" uid="uid://bux3ov15ltlxy" path="res://Mini_Dungeon_v1.0/Tilesets/Walls.png" id="7_ci6ci"]
 [ext_resource type="Texture2D" uid="uid://cpjb7vbf6kdo3" path="res://Mini_Dungeon_v1.0/Characters/Slime.png" id="8_kpqfi"]
@@ -163,6 +164,58 @@ texture = ExtResource("4_njd0n")
 9:17/0 = 0
 0:1/size_in_atlas = Vector2i(2, 1)
 0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vkam"]
+texture = ExtResource("5_7esgm")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vw0ks"]
 texture = ExtResource("4_0vkam")
@@ -421,3 +474,4 @@ sources/8 = SubResource("TileSetAtlasSource_xfecg")
 sources/9 = SubResource("TileSetAtlasSource_b2yid")
 sources/10 = SubResource("TileSetAtlasSource_0dge7")
 sources/11 = SubResource("TileSetAtlasSource_7esgm")
+sources/12 = SubResource("TileSetAtlasSource_0vkam")

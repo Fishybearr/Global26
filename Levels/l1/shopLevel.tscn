@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c65asemegjsyw" path="res://Levels/l1/SpawnAssets.gd" id="1_gfdcy"]
 [ext_resource type="Script" uid="uid://drnvng2i31uhg" path="res://door.gd" id="2_xcdss"]
+[ext_resource type="Script" uid="uid://b5t617dqkvbdt" path="res://Levels/l1/open_shop.gd" id="3_51q3n"]
 [ext_resource type="Texture2D" uid="uid://cplx8e3ow43m3" path="res://Mini_Dungeon_v1.0/Characters/Wizard.png" id="3_xcdss"]
 
 [sub_resource type="Gradient" id="Gradient_1nbx2"]
@@ -116,6 +117,7 @@ position = Vector2(-120, 208)
 [node name="Area2D" type="Area2D" parent="." unique_id=900179105]
 position = Vector2(-207.99998, -224.99998)
 scale = Vector2(2.8079834, 2.8079834)
+script = ExtResource("3_51q3n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=898322978]
 position = Vector2(-5.434074e-06, 22.436024)
@@ -134,3 +136,4 @@ position = Vector2(-0.5, -9)
 shape = SubResource("RectangleShape2D_xcdss")
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
